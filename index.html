@@ -141,6 +141,21 @@
 				generateHeart(event.pageX - brd.offsetLeft + cursorXOffset, event.pageY - brd.offsetTop + cursorYOffset, bound, start, scale);
 			}
 		}
-
 	</script>
+
+    <script>
+        document.addEventListener("touchmove", function(event) {
+            if (event.touches.length > 1) { // Prevent multi-finger gestures
+                event.preventDefault();
+        }
+        }, { passive: false });
+
+        document.addEventListener("scroll", function(event) {
+            if (window.scrollY === 0) {
+                event.preventDefault();
+            }
+        }, { passive: false });
+    </script>
+
 </html>
+
